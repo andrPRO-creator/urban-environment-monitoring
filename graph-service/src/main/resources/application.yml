@@ -1,0 +1,17 @@
+server:
+  port: ${SERVER_PORT:8082}
+spring:
+  application.name: graph-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5434/graph_db}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:root}
+  jpa:
+    hibernate.ddl-auto: validate
+    open-in-view: false
+  flyway.enabled: true
+  jackson.serialization.write-dates-as-timestamps: false
+springdoc.swagger-ui.path: /swagger-ui.html
+integration.fact-service-url: ${FACT_SERVICE_URL:http://localhost:8081}
+graph.nearby-minutes: ${GRAPH_NEARBY_MINUTES:30}
+graph.nearby-meters: ${GRAPH_NEARBY_METERS:500}

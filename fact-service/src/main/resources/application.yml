@@ -1,0 +1,22 @@
+server:
+  port: ${SERVER_PORT:8081}
+spring:
+  application.name: fact-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/fact_db}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:root}
+  jpa:
+    hibernate.ddl-auto: validate
+    open-in-view: false
+  flyway.enabled: true
+  jackson.serialization.write-dates-as-timestamps: false
+springdoc:
+  swagger-ui.path: /swagger-ui.html
+  api-docs.path: /v3/api-docs
+generator:
+  enabled-on-startup: ${GENERATOR_ENABLED:false}
+  min-interval-ms: ${GENERATOR_MIN_INTERVAL_MS:5000}
+  max-interval-ms: ${GENERATOR_MAX_INTERVAL_MS:15000}
+  batch-size: ${GENERATOR_BATCH_SIZE:5}
+integration.graph-service-url: ${GRAPH_SERVICE_URL:http://localhost:8082}
